@@ -10,4 +10,9 @@ describe RailsApp do
     puts Monkey.inspect
     Monkey.should == Monkey
   end
+
+  it "mounts route" do
+    visit "/account/new"
+    page.status_code.should == 200
+  end
 end
