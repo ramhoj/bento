@@ -1,2 +1,0 @@
-class Monkey
-end

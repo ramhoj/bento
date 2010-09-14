@@ -6,13 +6,12 @@ describe RailsApp do
     page.body.should include("Hello World")
   end
 
-  it "loads app/models" do
-    puts Monkey.inspect
-    Monkey.should == Monkey
+  it "loads app" do
+    Bento::AccountsController.should == Bento::AccountsController
   end
 
   it "mounts route" do
-    visit "/account/new"
+    visit "/accounts/new"
     page.status_code.should == 200
   end
 end
