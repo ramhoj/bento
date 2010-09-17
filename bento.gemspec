@@ -23,8 +23,11 @@ Gem::Specification.new do |s|
   s.summary = "A Rails account management engine"
 
   s.add_development_dependency("rspec", [">= 2.0.0.beta.20"])
+  s.add_development_dependency("rspec-rails", [">= 2.0.0.beta.20"])
   s.add_development_dependency("sqlite3-ruby", ["~> 1.3.1"])
   s.add_development_dependency("capybara", [">= 0.3.9"])
   s.add_development_dependency("cucumber", ["~> 0.8"])
+  s.add_development_dependency("cucumber-rails", ["~> 0.3"])
+  s.add_development_dependency("launchy", ["~> 0.3"])
   s.add_dependency("rails", ["~> 3.0"])
 end

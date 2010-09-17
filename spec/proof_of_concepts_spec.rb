@@ -10,7 +10,7 @@ describe RailsApp do
     Bento::AccountsController.should == Bento::AccountsController
   end
 
-  it "mounts route" do
+  it "mounts the new accounts route" do
     visit "/accounts/new"
     page.status_code.should == 200
   end
