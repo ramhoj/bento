@@ -29,5 +29,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency("cucumber", ["~> 0.8"])
   s.add_development_dependency("cucumber-rails", ["~> 0.3"])
   s.add_development_dependency("launchy", ["~> 0.3"])
+
+  s.add_dependency("simple_form", ["~> 1.2"])
   s.add_dependency("rails", ["~> 3.0"])
 end
