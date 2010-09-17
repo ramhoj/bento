@@ -6,6 +6,9 @@ require 'bundler/setup'
 require File.expand_path("../../spec/rails_app/config/environment", File.dirname(__FILE__))
 require "rails/test_help"
 
+require 'cucumber/rails/rspec'
+require 'cucumber/rails/world'
+
 require 'capybara/dsl'
 require 'capybara/cucumber'
 
