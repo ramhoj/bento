@@ -4,7 +4,8 @@ Feature: A visitor signs up for an account
   I want to sign up and start using the app
 
   Background:
-    Given I am on the sign up page
+    Given I am on the home page
+    And I follow "Sign up"
 
   Scenario: Successfully creating a new account
     And I fill in "Account name" with "Elabs"
