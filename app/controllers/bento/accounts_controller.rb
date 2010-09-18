@@ -1,4 +1,2 @@
-class Bento::AccountsController < ApplicationController
-  def new
-  end
+class Bento::AccountsController < InheritedResources::Base
 end
