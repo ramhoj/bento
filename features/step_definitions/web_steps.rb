@@ -1,5 +1,5 @@
-Given /^I am on the sign up page$/ do
-  visit new_account_path
+Given /^I am on the home page$/ do
+  visit root_path
 end
 
 When /^I follow "([^"]*)"$/ do |text|
