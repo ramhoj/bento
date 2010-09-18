@@ -31,5 +31,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency("launchy", ["~> 0.3"])
 
   s.add_dependency("simple_form", ["~> 1.2"])
+  s.add_dependency("inherited_resources", ["~> 1.1"])
   s.add_dependency("rails", ["~> 3.0"])
 end
