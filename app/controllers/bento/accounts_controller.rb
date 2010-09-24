@@ -1,2 +1,3 @@
-class Bento::AccountsController < InheritedResources::Base
+class Bento::AccountsController < Bento::ApplicationController
+  inherit_resources
 end
