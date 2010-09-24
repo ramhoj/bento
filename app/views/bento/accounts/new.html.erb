@@ -1,1 +1,12 @@
 <h1>New account</h1>
+<%= simple_form_for @account do |form| -%>
+  <%= form.error_message %>
+
+  <%= form.input :name, :label => 'Account name', :hint => 'For example, your own name or the name of your company.' %>
+  <%= form.input :first_name %>
+  <%= form.input :last_name %>
+  <%= form.input :email, :label => 'Email address', :hint => 'Will be used as your login.' %>
+  <%= form.input :password %>
+  <%= form.input :password_confirmation %>
+  <%= form.button :submit, "Create account", :class => "Submit" %>
+<% end -%>

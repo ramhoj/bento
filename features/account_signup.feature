@@ -16,16 +16,8 @@ Feature: A visitor signs up for an account
     And I fill in "Password confirmation" with "test1234"
     And I press "Create account"
     Then I should see "Account was successfully created."
-    And I should see "Welcome nicklas@elabs.se"
-
-  Scenario: Unsuccessfully creating a new account because the user details are incorrect
-    When I follow "Sign up"
-    And I fill in "Account name" with "Elabs"
-    And I press "Create account"
-    Then I should see form errors
 
   Scenario: Unsuccessfully creating a new account because the account details are incorrect
-    When I follow "Sign up"
     And I fill in "First name" with "Jonas"
     And I fill in "Last name" with "Nicklas"
     And I fill in "Email address" with "nicklas@elabs.se"
@@ -33,4 +25,4 @@ Feature: A visitor signs up for an account
     And I fill in "Password confirmation" with "test1234"
     And I press "Create account"
     Then I should see form errors
-    And I should see "Account name can't be blank"
+    And the "Account name" field should have the error message "can't be blank"
