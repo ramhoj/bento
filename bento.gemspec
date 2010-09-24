@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency("capybara", [">= 0.3.9"])
   s.add_development_dependency("cucumber", ["~> 0.8"])
   s.add_development_dependency("cucumber-rails", ["~> 0.3"])
+  s.add_development_dependency("database_cleaner", ["~> 0.5"])
   s.add_development_dependency("launchy", ["~> 0.3"])
   s.add_development_dependency("devise", ["~> 1.1"])
 
