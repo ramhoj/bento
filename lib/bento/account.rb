@@ -20,7 +20,8 @@ module Bento::Account
     def method_missing(*args)
       option = args.shift.to_s.sub(/^extend_with_/, '').chop.to_sym
       available = args.flatten
-      available.include?(:all) or available.include?(option)
+
+      (available.is_a?(Array) and available.empty?) or available.include?(:all) or available.include?(option)
     end
   end
 end

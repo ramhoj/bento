@@ -1,3 +1,3 @@
 class Account < ActiveRecord::Base
-  bento_account :all
+  bento_account
 end
