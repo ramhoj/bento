@@ -5,13 +5,11 @@ module Bento::Account
 
   module ClassMethods
     def bento_account(*options)
-      @options = options
-
-      if all? or @options.include?(:validations)
+      if extend_with_validations?(options)
         validates_presence_of :name
       end
 
-      if all? or @options.include?(:user_accessors)
+      if extend_with_user_accessors?(options)
         attr_accessor :first_name, :last_name, :email
         attr_accessor :password, :password_confirmation
       end
@@ -19,8 +17,10 @@ module Bento::Account
 
     private
 
-    def all?
-      @options.include?(:all)
+    def method_missing(*args)
+      option = args.shift.to_s.sub(/^extend_with_/, '').chop.to_sym
+      available = args.flatten
+      available.include?(:all) or available.include?(option)
     end
   end
 end
