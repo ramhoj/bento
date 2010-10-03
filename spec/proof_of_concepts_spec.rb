@@ -3,7 +3,7 @@ require 'spec_helper'
 describe RailsApp do
   it "reach it's own files" do
     visit "/"
-    page.body.should include("Hello World")
+    page.body.should include("Welcome to the app that's using Bento")
   end
 
   it "loads app" do
