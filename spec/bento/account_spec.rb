@@ -1,11 +1,12 @@
 require 'spec_helper'
 
-class Bento::AccountTest < ActiveRecord::Base;                  set_table_name("accounts");                   end
-class NoOptionsTestAccount < Bento::AccountTest;                bento_account;                                end
-class AllTestAccount < Bento::AccountTest;                      bento_account(:all);                          end
-class ValidationsTestAccount < Bento::AccountTest;              bento_account(:validations);                  end
-class UserAccessorsTestAccount < Bento::AccountTest;            bento_account(:user_accessors);               end
-class ServeralOptionsAccessorsTestAccount < Bento::AccountTest; bento_account(:user_accessors, :validations); end
+class Bento::AccountTest < ActiveRecord::Base;                  set_table_name("accounts");                        end
+class NoOptionsTestAccount < Bento::AccountTest;                bento_account;                                     end
+class AllTestAccount < Bento::AccountTest;                      bento_account(:all);                               end
+class ValidationsTestAccount < Bento::AccountTest;              bento_account(:validations);                       end
+class UserAccessorsTestAccount < Bento::AccountTest;            bento_account(:user_accessors);                    end
+class UserAssociationTestAccount < Bento::AccountTest;          bento_account(:user_association);                  end
+class ServeralOptionsAccessorsTestAccount < Bento::AccountTest; bento_account(:user_accessors, :validations);      end
 
 describe Bento::Account do
   context "all" do
