@@ -4,19 +4,30 @@ module Bento::Account
   end
 
   module ClassMethods
+    USER_ACCESSORS = [:first_name, :last_name, :email, :password, :password_confirmation]
+
     def bento_account(*options)
       if extend_with_validations?(options)
         validates_presence_of :name
       end
 
       if extend_with_user_accessors?(options)
-        attr_accessor :first_name, :last_name, :email
-        attr_accessor :password, :password_confirmation
+        attr_accessor *USER_ACCESSORS
+      end
 
       if extend_with_user_association?(options)
         has_many :users
       end
 
+      if extend_with_user_association?(options) and extend_with_user_accessors?(options)
+        before_validation :build_user, :on => :create
+
+        define_method("build_user") do
+          user_attributes = USER_ACCESSORS.inject({}) { |h, key| h.merge(key => send(key)) }
+          @user ||= users.build(user_attributes)
+          @user.tap(&:valid?).errors.each { |attribute, message| errors.add(attribute, message) }
+          @user
+        end
       end
     end
 
