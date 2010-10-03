@@ -12,6 +12,11 @@ module Bento::Account
       if extend_with_user_accessors?(options)
         attr_accessor :first_name, :last_name, :email
         attr_accessor :password, :password_confirmation
+
+      if extend_with_user_association?(options)
+        has_many :users
+      end
+
       end
     end
 
