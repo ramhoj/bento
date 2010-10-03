@@ -31,14 +31,14 @@ describe Bento::Account do
     it { should_not respond_to(:users) }
   end
 
-  context "UserAccessorsTestAccount" do
+  context "user accessors" do
     subject { UserAccessorsTestAccount.new }
     it { should_not be_invalid_without(:name) }
     it { should have_user_accessors }
     it { should_not respond_to(:users) }
   end
 
-  context "ServeralOptionsAccessorsTestAccount" do
+  context "several options" do
     subject { ServeralOptionsAccessorsTestAccount.new }
     it { should be_invalid_without(:name) }
     it { should have_user_accessors }
