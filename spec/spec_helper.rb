@@ -8,6 +8,8 @@ require "rails/test_help"
 
 require 'capybara/dsl'
 
+Dir["#{File.expand_path(File.dirname(__FILE__))}/support/*.rb"].each {|f| require f}
+
 Capybara.app = RailsApp::Application
 
 Rspec.configure do |config|
