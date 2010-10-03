@@ -1,3 +1,4 @@
 .bundle/config
 .rvmrc
 capybara*
+bento-*.gem
