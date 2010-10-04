@@ -1,4 +1,5 @@
-class Bento::AccountsController < Bento::ApplicationController
+class Bento::AccountsController < ApplicationController
+  include InheritedResources::DSL
   inherit_resources
 
   create! { new_user_session_url }
