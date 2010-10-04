@@ -8,8 +8,9 @@
 </head>
 <body>
   <h1>Welcome to the app that's using Bento</h1>
-  <div class="flash-notice"><%= flash[:notice] %></div>
-  <div class="flash-alert"><%= flash[:alert] %></div>
+  <% flash.each do |type, message| %>
+    <p id="flash" class="<%= type %>"><%= message %></p>
+  <% end %>
   <%= yield %>
 </body>
 </html>
