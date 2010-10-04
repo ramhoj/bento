@@ -1,18 +1,18 @@
 == Bento
 
-Bento is a Rails account management engine.
+  Bento is a Rails account management engine.
 
 == Disclaimer
 
-Don't expect anything work in any way as described below!
+  Don't expect anything work in any way as described below!
 
 == Requirements
 
-Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
-* Your model for managing accounts is named Account (Bento can generate it for you)
-* The account model has a name and a plan column (Bento can generate the migrations too)
-* You have a model named User to keep track of users
- - The users has a first_name, last_name, email and password fields
+  Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
+  * Your model for managing accounts is named Account (Bento can generate it for you)
+  * The account model has a name and a plan column (Bento can generate the migrations too)
+  * You have a model named User to keep track of users
+   - The users has a first_name, last_name, email and password fields
 
 == Installation
 
@@ -22,6 +22,21 @@ Currently it has a lot of pre conditions. The goal is to get rid of as many of t
 
 == Basic Usage
 
-Bento sets up the following routes that you can use, complete with views and controllers:
-* [GET] new_accounts
-* [POST] accounts
+  Bento sets up the following routes that you can use, complete with views and controllers:
+  * [GET] new_accounts
+  * [POST] accounts
+
+== Configuring controllers
+
+  You can customize the accounts controller by following these steps:
+
+  1) Create your custom accounts controller, AccountsController
+
+      class AccountsController < Bento::AccountsController
+      end
+
+  2) Tell the router to use this controller:
+
+      resources :accounts
+
+  3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.

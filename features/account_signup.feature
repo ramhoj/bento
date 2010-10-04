@@ -25,3 +25,6 @@ Feature: A visitor signs up for an account
     And I fill in "Password confirmation" with "test1234"
     And I press "Create account"
     And the "Account name" field should have the error message "can't be blank"
+
+  Scenario: Seeing custom flash message in overridden controller
+    Then I should see "Welcome to 'accounts' controller!"
