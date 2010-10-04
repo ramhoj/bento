@@ -19,6 +19,12 @@ module Bento::Account
         has_many :users
       end
 
+      if extend_with_trial?(options)
+        define_method("trial_days_remaining") do
+          created_at.advance(:days => 30).to_date - Date.today
+        end
+      end
+
       if extend_with_user_association?(options) and extend_with_user_accessors?(options)
         before_validation :build_user, :on => :create
 
