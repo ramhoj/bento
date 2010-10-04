@@ -17,7 +17,3 @@ end
 Then /^I should see "([^"]*)"$/ do |text|
   page.should have_content(text)
 end
-
-Then /^I should see form errors$/ do
-  page.should have_css(".form-errors")
-end

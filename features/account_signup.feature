@@ -24,5 +24,4 @@ Feature: A visitor signs up for an account
     And I fill in "Password" with "test1234"
     And I fill in "Password confirmation" with "test1234"
     And I press "Create account"
-    Then I should see form errors
     And the "Account name" field should have the error message "can't be blank"
