@@ -4,5 +4,5 @@ class Account < ActiveRecord::Base
   bento_account
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :plan
+  attr_accessible :name, :plan, :first_name, :last_name, :email, :password_confirmation, :password
 end

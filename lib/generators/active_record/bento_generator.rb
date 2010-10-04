@@ -20,7 +20,7 @@ module ActiveRecord
       def inject_bento_content
         inject_into_class model_path, class_name, model_contents + <<-CONTENT
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :plan
+  attr_accessible :name, :plan, :first_name, :last_name, :email, :password_confirmation, :password
 CONTENT
       end
     end
