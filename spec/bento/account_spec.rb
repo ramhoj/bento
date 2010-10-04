@@ -1,6 +1,9 @@
 require 'spec_helper'
 
-class Bento::AccountTest < ActiveRecord::Base;                  set_table_name("accounts");                        end
+class Bento::AccountTest < ActiveRecord::Base
+  set_table_name("accounts")
+  attr_accessible :name, :plan, :first_name, :last_name, :email, :password_confirmation, :password, :created_at
+end
 class NoOptionsTestAccount < Bento::AccountTest;                bento_account;                                     end
 class AllTestAccount < Bento::AccountTest;                      bento_account(:all);                               end
 class ValidationsTestAccount < Bento::AccountTest;              bento_account(:validations);                       end
