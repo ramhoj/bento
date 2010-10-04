@@ -40,3 +40,9 @@
       resources :accounts
 
   3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
+
+== Credits and contributors
+
+  * The contributors of the awesome Devise gem from which I've stealt a lot of ideas and idioms.
+  * Jonas Nicklas for helping me boot strap the engine.
+  * All the gems that this gem depends on.
