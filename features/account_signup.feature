@@ -8,7 +8,8 @@ Feature: A visitor signs up for an account
     And I follow "Sign up"
 
   Scenario: Successfully creating a new account
-    And I fill in "Account name" with "Elabs"
+    Then I should not see "Welcome to 'custom_accounts' controller!"
+    When I fill in "Account name" with "Elabs"
     And I fill in "First name" with "Jonas"
     And I fill in "Last name" with "Nicklas"
     And I fill in "Email address" with "nicklas@elabs.se"
@@ -27,4 +28,5 @@ Feature: A visitor signs up for an account
     And the "Account name" field should have the error message "can't be blank"
 
   Scenario: Seeing custom flash message in overridden controller
-    Then I should see "Welcome to 'accounts' controller!"
+    When I follow "Custom Accounts"
+    Then I should see "Welcome to 'custom_accounts' controller!"
