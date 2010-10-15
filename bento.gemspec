@@ -31,6 +31,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency("database_cleaner", ["~> 0.5"])
   s.add_development_dependency("launchy", ["~> 0.3"])
   s.add_development_dependency("devise", ["~> 1.1"])
+  s.add_development_dependency("machinist", ["~> 1.0"])
+  s.add_development_dependency("ffaker", ["~> 0.4"])
 
   s.add_dependency("simple_form", ["~> 1.2"])
   s.add_dependency("inherited_resources", ["~> 1.1"])

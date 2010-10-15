@@ -17,6 +17,7 @@ require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
 
+require File.dirname(__FILE__) + "/../../spec/support/blueprints"
 Capybara.app = RailsApp::Application
 
 require 'database_cleaner'
