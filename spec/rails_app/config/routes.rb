@@ -3,4 +3,5 @@ RailsApp::Application.routes.draw do
 
   root :to => "home#index"
   resources :custom_accounts, :only => %w[new create]
+  resources :projects, :only => %w[index]
 end
