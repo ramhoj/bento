@@ -1,6 +1,5 @@
 module Bento
   module Controllers
-    # Those helpers are convenience methods added to ApplicationController.
     module Helpers
       def self.included(base)
         base.helper_method :current_account
@@ -11,4 +10,8 @@ module Bento
       end
     end
   end
+end
+
+class ActionController::Base
+  include Bento::Controllers::Helpers
 end
