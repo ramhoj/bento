@@ -13,7 +13,7 @@ class AllUserTestAccount < Bento::AccountTest;                  bento_account(:u
 class ServeralOptionsAccessorsTestAccount < Bento::AccountTest; bento_account(:user_accessors, :validations);      end
 class TrialTestAccount < Bento::AccountTest;                    bento_account(:trial);                             end
 
-describe Bento::Account do
+describe Bento::Models::Account do
   let(:account_params) do
     { :name => "Hashrocket", :first_name => "Obie", :last_name => "Fernandez", :email => "obie@hashrocket.com", :password => "test1234" }
   end
