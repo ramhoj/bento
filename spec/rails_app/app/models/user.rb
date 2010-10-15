@@ -3,5 +3,6 @@ class User < ActiveRecord::Base
   # Also available: :token_authenticatable, :confirmable, :lockable,
   # :timeoutable :registerable, :trackable, :rememberable, :recoverable
 
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :account
+  belongs_to :account
 end
