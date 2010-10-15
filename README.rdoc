@@ -20,6 +20,11 @@
  rails generate bento account
  rake db:migrate
 
+== Strategies
+  There is only one strategy currently supported.
+  That is a system provides a public signup form. When the user fills out the form with an account name, their email and password an account is created and they can sign in right away.
+  The goal is to support more strategies later such as a super admin creating account and sends out invitations.
+
 == Basic Usage
 
   Bento sets up the following routes that you can use, complete with views and controllers:
