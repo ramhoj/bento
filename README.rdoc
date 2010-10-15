@@ -1,62 +1,61 @@
 = Bento
-
-  Bento is a Rails account management engine.
+Bento is a Rails account management engine.
 
 == Disclaimer
-
-  Don't expect anything work in any way as described below!
+Don't expect anything work in any way as described below!
 
 == Requirements
-
-  Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
-  * Your model for managing accounts is named Account (Bento can generate it for you)
-  * The account model has a name and a plan column (Bento can generate the migrations too)
-  * You have a model named User to keep track of users
-   - The users has a first_name, last_name, email and password fields
+Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
+* Your model for managing accounts is named Account (Bento can generate it for you)
+* The account model has a name and a plan column (Bento can generate the migrations too)
+* You have a model named User to keep track of users
+- The users has a first_name, last_name, email and password fields
 
 == Installation
-
  gem install bento
  rails generate bento account
  rake db:migrate
 
 == Strategies
-  There is only one strategy currently supported.
-  That is a system provides a public signup form. When the user fills out the form with an account name, their email and password an account is created and they can sign in right away.
-  The goal is to support more strategies later such as a super admin creating account and sends out invitations.
+There is only one strategy currently supported.
+That is a system provides a public signup form. When the user fills out the form with an account name, their email and password an account is created and they can sign in right away.
+The goal is to support more strategies later such as a super admin creating account and sends out invitations.
 
 == Basic Usage
-
-  Bento sets up the following routes that you can use, complete with views and controllers:
-  * [GET] new_accounts
-  * [POST] accounts
+Bento sets up the following routes that you can use, complete with views and controllers:
+* [GET] new_accounts
+* [POST] accounts
 
 == View helpers
-  # include bento helpers
+include bento helpers
   class ApplicationController < ActionController::Base
     include Bento::Controllers::Helpers
   end
+You can now use the current_account helper in your controllers and views which returns the currently logged in user's account.
 
-  # You can now use the current_account helper in your controllers and views which returns the currently logged in user's account.
+== Controller convenience
+If you're using inherited_resources in your controllers you can do:
+  class MyController < ApplicationController
+    scoped_to_account
+  end
+to scope your resource to the current account.
 
 == Configuring controllers
 
-  You can customize the accounts controller by following these steps:
+You can customize the accounts controller by following these steps:
 
-  1) Create your custom accounts controller, AccountsController
+1) Create your custom accounts controller, AccountsController
+    class AccountsController < Bento::AccountsController
+    end
 
-      class AccountsController < Bento::AccountsController
-      end
+2) Tell the router to use this controller:
+    resources :accounts
 
-  2) Tell the router to use this controller:
-
-      resources :accounts
-
-  3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
+3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
 
 == Credits and contributors
 
-  * The contributors of the awesome Devise gem from which I've borrowed a lot of ideas and patterns.
-  * Elabs for sponsoring
-  * Jonas Nicklas for helping me boot strap the engine.
-  * All the gems that this gem depends on.
+* The contributors of the awesome Devise gem from which I've borrowed a lot of ideas and patterns.
+* Elabs for sponsoring
+* Jonas Nicklas for helping me boot strap the engine.
+* All the gems that this gem depends on.

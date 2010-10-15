@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101015094515) do
+ActiveRecord::Schema.define(:version => 20101015143011) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(:version => 20101015094515) do
   end
 
   add_index "accounts", ["name"], :name => "index_accounts_on_name", :unique => true
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.integer  "account_id", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                             :default => "", :null => false

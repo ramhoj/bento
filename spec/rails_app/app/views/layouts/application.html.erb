@@ -13,6 +13,14 @@
   <%= link_to "Bento Accounts", new_account_path %>
   <%= link_to "Custom Accounts", new_custom_account_path %>
 
+  <% if user_signed_in? %>
+    <span>Current account: <%= current_account.name %></span>
+    <%= link_to "Projects", projects_path %>
+  <% else %>
+    <%= link_to "Sign up", new_account_path %>
+    <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+
   <%= yield %>
 </body>
 </html>
