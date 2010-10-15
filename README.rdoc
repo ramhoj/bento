@@ -1,4 +1,4 @@
-== Bento
+= Bento
 
   Bento is a Rails account management engine.
 
