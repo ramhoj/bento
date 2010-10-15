@@ -26,15 +26,10 @@ Bento sets up the following routes that you can use, complete with views and con
 * [GET] new_accounts
 * [POST] accounts
 
-== View helpers
-include bento helpers
-  class ApplicationController < ActionController::Base
-    include Bento::Controllers::Helpers
-  end
-You can now use the current_account helper in your controllers and views which returns the currently logged in user's account.
+== Views and controllers
+* There is a current_account helper in your controllers and views which returns the currently logged in user's account.
 
-== Controller convenience
-If you're using inherited_resources in your controllers you can do:
+* If you're using inherited_resources in your controllers you can do:
   class MyController < ApplicationController
     scoped_to_account
   end
