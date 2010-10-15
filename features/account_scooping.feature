@@ -20,3 +20,8 @@ Feature: Account scooping
     When I follow "Projects"
     Then I should not see "Take over the world"
     And I should see "Secret"
+
+  Scenario: Can create a new project to my account
+  Scenario: Can't create a new project to some other account
+  Scenario: Can delete a project belonging to my account
+  Scenario: Can't delete a project that belongs to some other account
