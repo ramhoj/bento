@@ -1,4 +1,4 @@
 module Bento
   require "bento/rails"
-  require "bento/account"
+  require "bento/models/account"
 end
