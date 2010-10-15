@@ -27,13 +27,14 @@ Bento sets up the following routes that you can use, complete with views and con
 * [POST] accounts
 
 == Views and controllers
-* There is a current_account helper in your controllers and views which returns the currently logged in user's account.
+=== Access the current account:
+There is a current_account helper in your controllers and views which returns the currently logged in user's account.
 
-* If you're using inherited_resources in your controllers you can do:
+=== Automatic scoping
+If you're using inherited_resources in your controllers you can do the below to scope your resource to the current account.
   class MyController < ApplicationController
     scoped_to_account
   end
-to scope your resource to the current account.
 
 == Configuring controllers
 
