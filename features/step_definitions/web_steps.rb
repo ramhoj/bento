@@ -1,4 +1,4 @@
-Given /^I am on the home page$/ do
+Given /^I am on the home\s?page$/ do
   visit root_path
 end
 
