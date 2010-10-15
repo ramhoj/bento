@@ -26,6 +26,14 @@
   * [GET] new_accounts
   * [POST] accounts
 
+== View helpers
+  # include bento helpers
+  class ApplicationController < ActionController::Base
+    include Bento::Controllers::Helpers
+  end
+
+  # You can now use the current_account helper in your controllers and views which returns the currently logged in user's account.
+
 == Configuring controllers
 
   You can customize the accounts controller by following these steps:
