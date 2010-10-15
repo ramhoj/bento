@@ -27,6 +27,10 @@ Feature: A visitor signs up for an account
     And I press "Create account"
     And the "Account name" field should have the error message "can't be blank"
 
-  Scenario: Seeing custom flash message in overridden controller
+  Scenario: Using overridden controller with
+    When I follow "Custom Accounts"
+    Then I should see "Welcome to 'custom_accounts' controller!"
+
+ Scenario: Seeing custom flash message in overridden controller
     When I follow "Custom Accounts"
     Then I should see "Welcome to 'custom_accounts' controller!"
