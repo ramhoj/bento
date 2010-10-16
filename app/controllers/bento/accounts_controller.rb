@@ -2,5 +2,13 @@ class Bento::AccountsController < ApplicationController
   include InheritedResources::DSL
   inherit_resources
 
-  create! { new_user_session_url }
+  create! do |success, failure|
+    success.html do
+      redirect_to params[:referer] == "sign_up" ? new_user_session_url : accounts_url
+    end
+
+    failure.html do
+      render params[:referer] == "sign_up" ? "sign_up" : "new"
+    end
+  end
 end
