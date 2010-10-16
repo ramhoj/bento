@@ -2,7 +2,7 @@
 Bento is a Rails account management engine.
 
 == Disclaimer
-Don't expect anything work in any way as described below!
+Don't expect everything to work as described below. The gem is still in early beta.
 
 == Requirements
 Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
@@ -16,16 +16,15 @@ Currently it has a lot of pre conditions. The goal is to get rid of as many of t
  rails generate bento account
  rake db:migrate
 
-== Strategies
-There is only one strategy currently supported.
-That is a system provides a public signup form. When the user fills out the form with an account name, their email and password an account is created and they can sign in right away.
-The goal is to support more strategies later such as a super admin creating account and sends out invitations.
-
 == Basic Usage
 Bento sets up the following routes that you can use, complete with views and controllers:
 * [GET] sign_up_accounts - account and user creation in once
 * [GET] new_accounts - for just account creation
-* [POST] accounts
+* [GET] accounts - show
+* [GET] account - index
+* [POST] accounts - create
+* [PUT] account - update
+* [DELETE] account - destroy
 
 == Views and controllers
 === Access the current account:
