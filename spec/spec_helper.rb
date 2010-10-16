@@ -16,4 +16,5 @@ Capybara.app = RailsApp::Application
 Rspec.configure do |config|
   config.include Capybara
   config.use_transactional_fixtures = true
+  config.before { Account.delete_all }
 end
