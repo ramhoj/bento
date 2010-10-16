@@ -1,5 +1,9 @@
-Given /^I am on the home\s?page$/ do
-  visit root_path
+Given /^(?:|I )am on (.+)$/ do |page_name|
+  visit path_to(page_name)
+end
+
+When /^(?:|I )go to (.+)$/ do |page_name|
+  visit path_to(page_name)
 end
 
 When /^I follow "([^"]*)"$/ do |text|
