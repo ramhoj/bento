@@ -1,0 +1,9 @@
+<h4>All projects:</h4>
+<ul>
+  <% Project.all.each do |project| %>
+    <li>
+      <%= link_to "Edit '#{project.name}'", edit_all_project_path(project) %>
+      <%= button_to "Delete '#{project.name}'", project_path(project), :method => :delete %>
+    </li>
+  <% end %>
+</ul>

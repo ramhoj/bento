@@ -16,6 +16,8 @@
   <% if user_signed_in? %>
     <span>Current account: <%= current_account.name %></span>
     <%= link_to "Projects", projects_path %>
+    <%= link_to "All projects", projects_path(:all => true) %>
+    <%= link_to('Sign out', destroy_user_session_path) %>
   <% else %>
     <%= link_to "Sign up", new_account_path %>
     <%= link_to "Sign in", new_user_session_path %>

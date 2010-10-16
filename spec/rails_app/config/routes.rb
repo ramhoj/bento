@@ -1,7 +1,9 @@
 RailsApp::Application.routes.draw do
   devise_for :users
 
-  root :to => "home#index"
   resources :custom_accounts, :only => %w[new create]
-  resources :projects, :only => %w[index]
+  resources :all_projects, :only => %w[edit]
+  resources :projects
+
+  root :to => "home#index"
 end
