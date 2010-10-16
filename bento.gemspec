@@ -38,4 +38,5 @@ Gem::Specification.new do |s|
   s.add_dependency("inherited_resources", ["~> 1.1"])
   s.add_dependency("rails", ["~> 3.0"])
   s.add_dependency("table_for", ["~> 0.0.2"])
+  s.add_dependency("show_for", ["~> 0.2"])
 end

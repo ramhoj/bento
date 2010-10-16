@@ -1,0 +1,12 @@
+<h1><%= @account.name %></h1>
+
+<%= show_for @account do |show| %>
+  <%= show.attributes :name %>
+<% end %>
+
+<p>
+  <%= link_to("Edit", edit_account_path(@account)) %>
+  <%= button_to('Delete', @account, :method => :delete) %>
+</p>
+
+<p><%= link_to "Back to accounts", accounts_path %></p>

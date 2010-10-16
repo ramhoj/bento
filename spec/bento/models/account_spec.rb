@@ -29,7 +29,8 @@ describe Bento::Models::Account do
     describe ".build_user" do
       context "all user attributes are blank" do
         it "creates the account without the user" do
-          AllTestAccount.new(:name => "Elabs").save.should be_true
+          account = AllTestAccount.new(:name => "Elabs")
+          account.save.should be_true
           User.find_by_account_id(account.id).should be_nil
         end
       end
