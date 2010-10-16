@@ -23,7 +23,8 @@ The goal is to support more strategies later such as a super admin creating acco
 
 == Basic Usage
 Bento sets up the following routes that you can use, complete with views and controllers:
-* [GET] new_accounts
+* [GET] sign_up_accounts - account and user creation in once
+* [GET] new_accounts - for just account creation
 * [POST] accounts
 
 == Views and controllers
@@ -35,6 +36,11 @@ If you're using inherited_resources in your controllers you can do the below to 
   class MyController < ApplicationController
     scoped_to_account
   end
+
+=== Admin managed account
+Bento can give you a complete CRUD for creating accounts. Use
+  rails generate bento:views
+If your current_user respond to admin? These actions will only be accessible by users that respond with true.
 
 == Configuring controllers
 
