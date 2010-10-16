@@ -16,22 +16,22 @@ Feature: Manage accounts
     And I should see the header "Accounts"
     And I should see "Elabs"
 
-  @wip
   Scenario: Unsuccessfully creating a new account
-    When I follow "Create account"
+    When I follow "Add account"
     And I press "Create"
-    Then I should see the form error "can't be blank" on "Name"
-    And I should see the header "Create account"
-  # 
-  # Scenario: Successfully updating an account
-  #   Given there is an account "Elbbs"
-  #   When I follow "Edit 'Elbbs'"
-  #   And I fill in "Name" with "Elabs"
-  #   And I press "Update"
-  #   Then I should see "Account was successfully updated"
-  #   And I should see the header "Accounts"
-  #   And I should see "Elabs"
-  #   And I should not see "Elbbs"
+    And the "Name" field should have the error message "can't be blank"
+    And I should see the header "New account"
+
+  @wip
+  Scenario: Successfully updating an account
+    Given there is an account "Elbbs"
+    When I follow "Edit 'Elbbs'"
+    And I fill in "Name" with "Elabs"
+    And I press "Update"
+    Then I should see "Account was successfully updated"
+    And I should see the header "Accounts"
+    And I should see "Elabs"
+    And I should not see "Elbbs"
   # 
   # Scenario: Unsuccessfully updating an account
   #   Given there is an account "Elbbs"
