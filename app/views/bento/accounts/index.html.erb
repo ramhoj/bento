@@ -1,0 +1,11 @@
+<h1>Accounts</h1>
+
+<%= table_for Account, @accounts do |table| %>
+  <%= table.head :name %>
+  <%= table.body do |row| %>
+    <%= row.cell link_to(row.record.name, row.record) %>
+  <% end %>
+  <%= table.foot do %>
+    <%= link_to "Add account", new_account_path %>
+  <% end %>
+<% end %>

@@ -11,4 +11,8 @@ class Bento::AccountsController < ApplicationController
       render params[:referer] == "sign_up" ? "sign_up" : "new"
     end
   end
+
+  def sign_up
+    build_resource
+  end
 end
