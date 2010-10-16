@@ -32,9 +32,11 @@ module Bento
 
             define_method("build_user") do
               user_attributes = USER_ACCESSORS.inject({}) { |h, key| h.merge(key => send(key)) }
-              @user ||= users.build(user_attributes)
-              @user.tap(&:valid?).errors.each { |attribute, message| errors.add(attribute, message) }
-              @user
+              if user_attributes.values.any?
+                @user ||= users.build(user_attributes)
+                @user.tap(&:valid?).errors.each { |attribute, message| errors.add(attribute, message) }
+                @user
+              end
             end
           end
         end

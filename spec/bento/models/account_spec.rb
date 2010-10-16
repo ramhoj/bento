@@ -27,20 +27,29 @@ describe Bento::Models::Account do
     it { should respond_to(:build_user) }
 
     describe ".build_user" do
-      context "successfully creating a user" do
-        subject do
-          account = AllTestAccount.create!(account_params)
-          account.users.first
+      context "all user attributes are blank" do
+        it "creates the account without the user" do
+          AllTestAccount.new(:name => "Elabs").save.should be_true
+          User.find_by_account_id(account.id).should be_nil
         end
-
-        its(:email) { should == "obie@hashrocket.com" }
-        its(:first_name) { should == "Obie" }
-        its(:last_name) { should == "Fernandez" }
       end
 
-      context "unsuccessfully creating a user" do
-        subject { AllTestAccount.new(account_params.merge(:email => "")).tap(&:valid?) }
-        it { subject.errors.should include(:email) }
+      context "at least one user attributes is present" do
+        context "successfully creating a user" do
+          subject do
+            account = AllTestAccount.create!(account_params)
+            account.users.first
+          end
+
+          its(:email) { should == "obie@hashrocket.com" }
+          its(:first_name) { should == "Obie" }
+          its(:last_name) { should == "Fernandez" }
+        end
+
+        context "unsuccessfully creating a user" do
+          subject { AllTestAccount.new(account_params.merge(:email => "")).tap(&:valid?) }
+          it { subject.errors.should include(:email) }
+        end
       end
     end
 
