@@ -1,6 +1,7 @@
-<h4><%= current_account.name %>'s projects:</h4>
-<ul>
-  <% current_account.projects.each do |project| %>
-    <li><%= project.name %></li>
-  <% end %>
-</ul>
+<% if params[:all] %>
+  <%= render "all_projects" %>
+<% else %>
+  <%= render "current_account_projects" %>
+<% end %>
+
+<%= link_to "Add project", new_project_path %>
