@@ -2,6 +2,7 @@
 <ul>
   <% Project.all.each do |project| %>
     <li>
+      <%= link_to project.name, scoping_account_project_path(project.account, project) %>
       <%= link_to "Edit '#{project.name}'", edit_all_project_path(project) %>
       <%= button_to "Delete '#{project.name}'", project_path(project), :method => :delete %>
     </li>

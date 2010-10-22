@@ -8,6 +8,12 @@ Feature: Account scooping
    And there is a user "antony@elabs.se" belonging to the account "Elabs"
    And I am signed in as "antony@elabs.se"
 
+  Scenario: Trying to view a project in another account
+    Given there is an account "Hashrocket"
+    And there is a project called "Hydra" belonging to the account "Hashrocket"
+    When I follow "All projects"
+    When I follow "Hydra" I expect an active record not found exception
+
   Scenario: Viewing projects in my account
     And the account "Elabs" has the project "Secret"
     When I follow "Projects"
