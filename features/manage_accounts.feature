@@ -61,16 +61,22 @@ Feature: Manage accounts
     Then I should see "You need to sign in or sign up before continuing"
 
   Scenario: Users who don't respond to admin? can access the accounts list
-    Given users don't respond to "admin?"
+    Given users don't respond to admin?
     When I go to the accounts page
     Then I should see the header "Accounts"
 
   Scenario: Users who respond with true to admin? can access the accounts list
-    Given users respond true to "admin?"
-    When I go to the accounts page
-    Then I should see the header "Accounts"
+    Then users show respond true to admin? should see "Accounts"
 
   Scenario: Users who respond with false to admin? can access the accounts list
-    Given users respond false to "admin?"
-    When I go to the accounts page
-    Then I should see "You are not authorized to access this page."
+    Then users show respond false to admin? should see "You are not authorized to access this page."
+
+  Scenario: Creating a new account with overridden after creation redirect
+    When I follow "Manage custom accounts"
+    Then I should see the header "Custom accounts"
+    When I follow "Add account"
+    And I fill in "Name" with "Elabs"
+    And I press "Create"
+    Then I should see "Account was successfully created"
+    And I should see the header "Elabs (Custom account)"
+    And I should not see the header "Accounts"

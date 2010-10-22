@@ -3,10 +3,14 @@ Given /^there is a user "([^"]*)" belonging to the account "([^"]*)"$/ do |user_
   User.make(:account => account, :email => user_email)
 end
 
-Given /^users don't respond to "([^"]*)"$/ do |method|
+Given "users don't respond to admin?" do
   "Nothing to see here"
 end
 
-Given /^users respond (true|false) to "([^"]*)"$/ do |return_value, method|
-  User.any_instance.stubs(method.to_sym).returns(return_value == "true")
+Then /^users show respond (true|false) to admin\? should see "([^"]*)"$/ do |return_value, text|
+  lambda do
+    User.any_instance.stubs(:admin?).returns(return_value == "true")
+    visit path_to("accounts page")
+    page.should have_content(text)
+  end
 end
