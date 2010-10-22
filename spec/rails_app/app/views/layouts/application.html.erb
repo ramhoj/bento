@@ -11,8 +11,9 @@
   <% end %>
 
   <%= link_to "Manage accounts", accounts_path %>
-  <%= link_to "Bento Accounts", new_account_path %>
-  <%= link_to "Custom Accounts", new_custom_account_path %>
+  <%= link_to "Bento accounts", new_account_path %>
+  <%= link_to "Custom accounts", new_custom_account_path(:sign_up => true) %>
+  <%= link_to "Manage custom accounts", custom_accounts_path %>
 
   <% if user_signed_in? %>
     <span>Current account: <%= current_account.name %></span>

@@ -6,7 +6,7 @@ class Bento::AccountsController < ApplicationController
 
   create! do |success, failure|
     success.html do
-      redirect_to params[:referer] == "sign_up" ? new_user_session_url : accounts_url
+      redirect_to params[:referer] == "sign_up" ? new_user_session_url : after_create_url
     end
 
     failure.html do
@@ -20,10 +20,14 @@ class Bento::AccountsController < ApplicationController
 
   protected
 
+  def after_create_url
+    accounts_url
+  end
+
   def authenticate_user!
     if current_user.respond_to?(:admin?) and not current_user.admin?
       flash[:alert] = "You are not authorized to access this page."
-      redirect_to :root
+      redirect_to root_url
     else
       super
     end
