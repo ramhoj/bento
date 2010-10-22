@@ -3,9 +3,9 @@ Given /^there is a project called "([^"]*)" belonging to the account "([^"]*)"$/
   account.projects.create!(:name => project_name)
 end
 
-When /^I press "([^"]*)" I expect an active record not found exception$/ do |button|
+When /^I (press|follow) "([^"]*)" I expect an active record not found exception$/ do |action, text|
   begin
-    click_button(button)
+    if action == "press" then click_button(text) else click_link(text) end
   rescue ActiveRecord::RecordNotFound
     "All good"
   end
