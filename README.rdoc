@@ -16,7 +16,13 @@ Currently it has a lot of pre conditions. The goal is to get rid of as many of t
  rails generate bento account
  rake db:migrate
 
-== Basic Usage
+== Model
+Currently Bento requires that you're model for account management is named Account.
+If you run:
+  rails generate bento account
+your Account model will call bento_account which will load account functionality into our model.
+
+== Routes
 Bento sets up the following routes that you can use, complete with views and controllers:
 * [GET] sign_up_accounts - account and user creation in once
 * [GET] new_accounts - for just account creation
