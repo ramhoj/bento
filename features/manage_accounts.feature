@@ -13,7 +13,8 @@ Feature: Manage accounts
     And I fill in "Name" with "Elabs"
     And I press "Create"
     Then I should see "Account was successfully created"
-    And I should see the header "Accounts"
+    And I should see the header "Elabs"
+    When I follow "Back to accounts"
     And I should see "Elabs"
 
   Scenario: Unsuccessfully creating a new account
