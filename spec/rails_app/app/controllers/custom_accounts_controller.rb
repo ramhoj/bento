@@ -6,4 +6,10 @@ class CustomAccountsController < Bento::AccountsController
     flash[:special] = "Welcome to '#{controller_path}' controller!"
     super
   end
+
+  protected
+
+  def after_create_url
+    custom_account_path(resource)
+  end
 end

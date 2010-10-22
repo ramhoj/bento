@@ -54,6 +54,16 @@ You can customize the accounts controller by following these steps:
 
 3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
 
+=== Override specific pieces
+The default behavior is to redirect to the accounts show view after creation.
+This can be changed by overriding the after_create_url method:
+  class CustomAccountsController < Bento::AccountsController
+    protected
+    def after_create_url
+      custom_account_path(resource)
+    end
+  end
+
 == Credits and contributors
 
 * The contributors of the awesome Devise gem from which I've borrowed a lot of ideas and patterns.

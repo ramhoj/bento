@@ -29,3 +29,7 @@ end
 Then /^I should see the header "([^\"]*)"$/ do |text|
   page.find(:xpath, "//*[self::h2 or self::h1]", :text => text).should_not be_nil
 end
+
+Then /^I should not see the header "([^\"]*)"$/ do |text|
+  page.find(:xpath, "//*[self::h2 or self::h1]", :text => text).should be_nil
+end
