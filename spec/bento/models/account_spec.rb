@@ -76,6 +76,17 @@ describe Bento::Models::Account do
     it { should_not respond_to(:users) }
     it { should_not respond_to(:trial_days_remaining) }
     it { should_not respond_to(:build_user) }
+
+    it "validates pressence of name" do
+      account2 = ValidationsTestAccount.create(:name => "")
+      account2.should have(1).error_on(:name)
+    end
+
+    it "validates uniquness of name" do
+      account1 = ValidationsTestAccount.create!(:name => "Elabs")
+      account2 = ValidationsTestAccount.create(:name => "Elabs")
+      account2.should have(1).error_on(:name)
+    end
   end
 
   context "user accessors" do

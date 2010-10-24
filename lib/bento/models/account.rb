@@ -11,6 +11,7 @@ module Bento
         def bento_account(*options)
           if extend_with_validations?(options)
             validates_presence_of :name
+            validates_uniqueness_of :name, :allow_blank => true
           end
 
           if extend_with_user_accessors?(options)
