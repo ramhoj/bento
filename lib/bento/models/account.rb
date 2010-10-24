@@ -1,54 +1,34 @@
+Dir["#{File.expand_path(File.dirname(__FILE__))}/modules/*.rb"].each {|f| require f}
+
 module Bento
   module Models
     module Account
+      DEFAULT_MODULES = %w[validations user_association]
+      ALL_MODULES = DEFAULT_MODULES + %w[trial user_accessors]
+
       def self.included(base)
         base.extend(ClassMethods)
       end
 
       module ClassMethods
-        USER_ACCESSORS = [:first_name, :last_name, :email, :password, :password_confirmation]
-
-        def bento_account(*options)
-          if extend_with_validations?(options)
-            validates_presence_of :name
-            validates_uniqueness_of :name, :allow_blank => true
-          end
-
-          if extend_with_user_accessors?(options)
-            attr_accessor *USER_ACCESSORS
-          end
-
-          if extend_with_user_association?(options)
-            has_many :users
-          end
-
-          if extend_with_trial?(options)
-            define_method("trial_days_remaining") do
-              created_at.advance(:days => 30).to_date - Date.today
-            end
-          end
-
-          if extend_with_user_association?(options) and extend_with_user_accessors?(options)
-            before_validation :build_user, :on => :create
-
-            define_method("build_user") do
-              user_attributes = USER_ACCESSORS.inject({}) { |h, key| h.merge(key => send(key)) }
-              if user_attributes.values.any?
-                @user ||= users.build(user_attributes)
-                @user.tap(&:valid?).errors.each { |attribute, message| errors.add(attribute, message) }
-                @user
-              end
-            end
-          end
+        def bento_account(*modules)
+          module_names(modules).each { |name| include account_module(name) }
         end
 
         private
 
-        def method_missing(*args)
-          option = args.shift.to_s.sub(/^extend_with_/, '').chop.to_sym
-          available = args.flatten
+        def module_names(modules)
+          if modules.include?(:all)
+            ALL_MODULES
+          elsif modules.empty?
+            DEFAULT_MODULES
+          else
+            modules
+          end
+        end
 
-          (available.is_a?(Array) and available.empty?) or available.include?(:all) or available.include?(option)
+        def account_module(name)
+          "Bento::Models::Modules::#{name.to_s.camelcase}".constantize
         end
       end
     end
