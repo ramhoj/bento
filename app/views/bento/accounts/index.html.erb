@@ -1,7 +1,7 @@
 <h1>Accounts</h1>
 
 <%= table_for Account, @accounts do |table| %>
-  <%= table.head :show, :edit, :delete %>
+  <%= table.head :name, :edit, :delete %>
   <%= table.body do |row| %>
     <%= row.cell link_to(row.record.name, row.record) %>
     <%= row.cell link_to("Edit '#{row.record.name}'", edit_account_path(row.record)) %>
