@@ -25,6 +25,10 @@ Account.blueprint do
   plan       { Sham.plan }
 end
 
+Site.blueprint do
+  name       { Sham.company_name }
+end
+
 User.blueprint do
   account
   email { Sham.email }
