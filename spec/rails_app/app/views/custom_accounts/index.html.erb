@@ -1,6 +1,6 @@
 <h1>Custom accounts</h1>
 
-<%= table_for Account, @accounts do |table| %>
+<%= table_for Site, @sites do |table| %>
   <%= table.head :show, :edit, :delete %>
   <%= table.body do |row| %>
     <%= row.cell link_to(row.record.name, row.record) %>

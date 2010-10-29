@@ -15,7 +15,7 @@ module ActiveRecord
 
       def copy_bento_migration
         migration_template "create_migration.rb", "db/migrate/bento_create_#{table_name}"
-        migration_template "add_migration.rb", "db/migrate/bento_add_account_id_to_#{table_name}"
+        migration_template "add_migration.rb", "db/migrate/bento_add_#{name}_id_to_#{table_name}"
       end
 
       def inject_bento_content

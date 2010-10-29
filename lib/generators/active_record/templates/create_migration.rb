@@ -1,6 +1,6 @@
-class BentoCreateAccounts < ActiveRecord::Migration
+class BentoCreate<%= name.classify %>s < ActiveRecord::Migration
   def self.up
-    create_table :accounts do |t|
+    create_table :<%= name.pluralize %> do |t|
       t.string :name
       t.string :plan
 <% for attribute in attributes -%>
@@ -9,10 +9,10 @@ class BentoCreateAccounts < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :accounts, :name, :unique => true
+    add_index :<%= name.pluralize %>, :name, :unique => true
   end
 
   def self.down
-    drop_table :accounts
+    drop_table :<%= name.pluralize %>
   end
 end
