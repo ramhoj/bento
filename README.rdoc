@@ -8,6 +8,7 @@ Don't expect everything to work exactly as described below. The gem is still in 
  gem install bundler
  add gem 'bento' to your Gemfile
  bundle install
+ rails generate bento:install
  rails generate bento account
  rake db:migrate
 
@@ -15,6 +16,7 @@ Don't expect everything to work exactly as described below. The gem is still in 
 If you run:
   rails generate bento account
 your Account model will call bento_account which will load account functionality into our model.
+If your model isn't named Account you need to override the model bento uses in the generated initializer.
 
 == Routes
 Bento sets up the following routes that you can use, complete with views and controllers:
@@ -28,7 +30,7 @@ Bento sets up the following routes that you can use, complete with views and con
 
 == Views and controllers
 === Access the current account:
-There is a current_account helper in your controllers and views which returns the currently logged in user's account.
+There is a current_<account model name> (i.e. current_account) helper in your controllers and views which returns the currently logged in user's account.
 
 === Automatic scoping
 You can tell your controllers to scope your resource to the current account.

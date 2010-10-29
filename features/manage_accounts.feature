@@ -72,9 +72,11 @@ Feature: Manage accounts
   Scenario: Users who respond with false to admin? can access the accounts list
     Then users show respond false to admin? should see "You are not authorized to access this page."
 
+  @wip
   Scenario: Creating a new account using the site model with overridden after creation redirect
     When I follow "Manage custom accounts"
     Then I should see the header "Custom accounts"
+    And I should see the header "Current site: FooSite"
     When I follow "Add account"
     And I fill in "Name" with "Elabs"
     And I press "Create"
