@@ -2,7 +2,6 @@ class BentoCreate<%= name.classify %>s < ActiveRecord::Migration
   def self.up
     create_table :<%= name.pluralize %> do |t|
       t.string :name
-      t.string :plan
 <% for attribute in attributes -%>
       t.<%= attribute.type %> :<%= attribute.name %>
 <% end -%>
