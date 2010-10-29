@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
 
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :account
   belongs_to :account
+  belongs_to :site
 end
