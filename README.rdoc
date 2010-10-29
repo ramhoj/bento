@@ -2,20 +2,16 @@
 Bento is a Rails account management engine.
 
 == Disclaimer
-Don't expect everything to work as described below. The gem is still in early beta.
-
-== Requirements
-Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
-* You have a model named User to keep track of users
-- The users has a first_name, last_name, email and password fields
+Don't expect everything to work exactly as described below. The gem is still in early beta.
 
 == Installation
- gem install bento
+ gem install bundler
+ add gem 'bento' to your Gemfile
+ bundle install
  rails generate bento account
  rake db:migrate
 
 == Model
-Currently Bento requires that you're model for account management is named Account.
 If you run:
   rails generate bento account
 your Account model will call bento_account which will load account functionality into our model.
@@ -35,13 +31,13 @@ Bento sets up the following routes that you can use, complete with views and con
 There is a current_account helper in your controllers and views which returns the currently logged in user's account.
 
 === Automatic scoping
-If you're using inherited_resources in your controllers you can do the below to scope your resource to the current account.
+You can tell your controllers to scope your resource to the current account.
   class MyController < ApplicationController
     scoped_to_account
   end
 
 === Admin managed account
-Bento can give you a complete CRUD for creating accounts. Use
+Bento can give you a complete CRUD for creating accounts. To customize the views use
   rails generate bento:views
 If your current_user respond to admin? These actions will only be accessible by users that respond with true.
 
@@ -49,7 +45,7 @@ If your current_user respond to admin? These actions will only be accessible by 
 
 You can customize the accounts controller by following these steps:
 
-1) Create your custom accounts controller, AccountsController
+1) Create your custom accounts controller:
     class AccountsController < Bento::AccountsController
     end
 
@@ -57,6 +53,7 @@ You can customize the accounts controller by following these steps:
     resources :accounts
 
 3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
+  rails generate bento:views
 
 === Override specific pieces
 The default behavior is to redirect to the accounts show view after creation.
