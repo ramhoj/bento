@@ -1,5 +1,5 @@
 class CustomAccountsController < Bento::AccountsController
-  defaults :resource_class => Account, :collection_name => 'accounts', :instance_name => 'account'
+  defaults :resource_class => Site, :collection_name => 'sites', :instance_name => 'site'
   skip_before_filter :authenticate_user!, :only => %w[new]
 
   def new

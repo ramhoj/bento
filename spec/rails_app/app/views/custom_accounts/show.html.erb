@@ -1,12 +1,12 @@
-<h1><%= @account.name %> (Custom account)</h1>
+<h1><%= @site.name %> (Custom account)</h1>
 
-<%= show_for @account do |show| %>
+<%= show_for @site do |show| %>
   <%= show.attributes :name %>
 <% end %>
 
 <p>
-  <%= link_to("Edit", edit_account_path(@account)) %>
-  <%= button_to('Delete', @account, :method => :delete) %>
+  <%= link_to("Edit", edit_account_path(@site)) %>
+  <%= button_to('Delete', account_path(@site), :method => :delete) %>
 </p>
 
 <p><%= link_to "Back to accounts", accounts_path %></p>

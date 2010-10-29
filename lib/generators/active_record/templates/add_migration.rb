@@ -1,6 +1,6 @@
-class BentoAddAccountIdToAccounts < ActiveRecord::Migration
+class BentoAdd<%= name.classify %>IdTo<%= name.classify %>s < ActiveRecord::Migration
   def self.up
-    add_column :users, :account_id, :integer
+    add_column :users, :<%= name %>_id, :integer
   end
 
   def self.down

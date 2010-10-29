@@ -6,7 +6,6 @@ Don't expect everything to work as described below. The gem is still in early be
 
 == Requirements
 Currently it has a lot of pre conditions. The goal is to get rid of as many of them as possible but right new Bento expects the following:
-* Your model for managing accounts is named Account (Bento can generate it for you)
 * The account model has a name and a plan column (Bento can generate the migrations too)
 * You have a model named User to keep track of users
 - The users has a first_name, last_name, email and password fields
