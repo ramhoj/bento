@@ -2,11 +2,16 @@ module Bento
   module Controllers
     module Helpers
       def self.included(base)
-        base.helper_method :current_account
-      end
+        account_model_names = [*Bento.models].map { |class_name| class_name.to_s.demodulize.underscore }
 
-      def current_account
-        current_user.account if current_user
+        base.class_eval do
+          account_model_names.each do |name|
+            define_method("current_#{name}") do
+              current_user.send(name) if current_user
+            end
+            helper_method "current_#{name}"
+          end
+        end
       end
     end
   end

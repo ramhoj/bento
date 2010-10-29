@@ -4,6 +4,6 @@ Given /^I am signed in as "([^"]*)"$/ do |email|
 end
 
 Given /^I am logged in as admin$/ do
-  user = User.make
+  user = User.make(:site => Site.make(:name => "FooSite"))
   sign_in(user)
 end
