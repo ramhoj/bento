@@ -2,7 +2,6 @@ class BentoCreateSites < ActiveRecord::Migration
   def self.up
     create_table :sites do |t|
       t.string :name
-      t.string :plan
       t.timestamps
     end
 
