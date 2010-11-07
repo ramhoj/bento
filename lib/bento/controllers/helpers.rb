@@ -5,7 +5,7 @@ module Bento
       @@resource_names = []
 
       def self.define_helpers(resource_name)
-        @@resource_names << resource_name
+        @@resource_names << resource_name.to_s.singularize
 
         ActiveSupport.on_load(:action_controller) do
           @@resource_names.uniq.each do |name|
