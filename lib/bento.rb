@@ -2,9 +2,6 @@ module Bento
   require "bento/rails"
   require "bento/models/account"
 
-  mattr_accessor :models
-  @@models = %w[Account]
-
   def self.configure
     yield self
   end
