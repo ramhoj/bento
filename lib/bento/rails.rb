@@ -2,11 +2,14 @@ require 'bento/rails/routes'
 
 module Bento
   class Engine < ::Rails::Engine
-    # Force routes to be loaded if we are doing any eager load.
-    config.before_eager_load { |app| app.reload_routes! }
+    initializer "bento.helpers" do
+      ActiveSupport.on_load(:action_controller) do
+        include Bento::Controllers::Helpers
+      end
 
-    initializer "bento.url_helpers" do
-      Bento.include_helpers(Bento::Controllers)
+      ActiveSupport.on_load(:action_view) do
+        include Bento::Controllers::Helpers
+      end
     end
   end
 end
