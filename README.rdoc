@@ -68,8 +68,12 @@ This can be changed by overriding the after_create_url method:
   end
 
 == Credits and contributors
-
 * The contributors of the awesome Devise gem from which I've borrowed a lot of ideas and patterns.
 * Elabs for sponsoring
 * Jonas Nicklas for helping me boot strap the engine.
 * All the gems that this gem depends on.
+
+== TODO:
+* Make is possible to have another user model then User.
+* Complement the acceptance tests with controller specs.
+* Make it possible for a user to belong to more then one account.
