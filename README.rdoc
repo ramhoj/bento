@@ -77,3 +77,4 @@ This can be changed by overriding the after_create_url method:
 * Make is possible to have another user model then User.
 * Complement the acceptance tests with controller specs.
 * Make it possible for a user to belong to more then one account.
+* Set up routes trough bento_for
