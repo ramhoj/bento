@@ -1,6 +1,6 @@
 RailsApp::Application.routes.draw do
   devise_for :users
-  bento_for :accounts, :sites
+  bento_for :account, :site
 
   resources :custom_accounts
   resources :all_projects, :only => %w[edit]
