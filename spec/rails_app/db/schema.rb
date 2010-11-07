@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20101029122257) do
 
   create_table "sites", :force => true do |t|
     t.string   "name"
-    t.string   "plan"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
