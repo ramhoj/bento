@@ -3,7 +3,7 @@ require 'spec_helper'
 class UserAssociationTestAccount < ActiveRecord::Base
   set_table_name("accounts")
   attr_accessible :name, :created_at
-  bento_account(:user_association)
+  bento(:user_association)
 end
 
 describe Bento::Models::Modules::Trial do

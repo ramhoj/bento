@@ -5,7 +5,7 @@ module Bento
 <<-CONTENT
   # Include all bento modules. Others available are:
   # :all, :validations, :user_accessors, :user_association, :user_accessors, :trial
-  bento_account
+  bento
 
 CONTENT
       end

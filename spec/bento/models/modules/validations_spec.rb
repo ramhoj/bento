@@ -3,7 +3,7 @@ require 'spec_helper'
 class ValidationsTestAccount < ActiveRecord::Base
   set_table_name("accounts")
   attr_accessible :name
-  bento_account(:validations)
+  bento(:validations)
 end
 
 describe Bento::Models::Modules::Validations do

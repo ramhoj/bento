@@ -3,7 +3,7 @@ require 'spec_helper'
 class UserAccessorsTestAccount < ActiveRecord::Base
   set_table_name("accounts")
   attr_accessible :name, :plan, :first_name, :last_name, :email, :password_confirmation, :password, :created_at
-  bento_account(:user_accessors)
+  bento(:user_accessors)
 end
 
 describe Bento::Models::Modules::UserAccessors do
