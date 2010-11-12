@@ -61,8 +61,8 @@ This can be changed by overriding the after_create_url method:
   end
 
 == Navigating the source
-  The gem has a basic set of cucumber features along with a rails app.
-  Check them out to see some examples on how to use Bento in your application.
+The gem has a basic set of cucumber features along with a rails app.
+Check them out to see some examples on how to use Bento in your application.
 
 == Disclaimer
 * The gem is still in early beta, be careful.
