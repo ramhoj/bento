@@ -1,71 +1,73 @@
 = Bento
 Bento is a Rails account management engine.
 
-== Disclaimer
-Don't expect everything to work exactly as described below. The gem is still in early beta.
-
 == Installation
- gem install bundler
- add gem 'bento' to your Gemfile
- bundle install
- rails generate bento:install
- rails generate bento account
- rake db:migrate
+Install the gem with bundler:
+  gem install bundler
+  add gem 'bento' to your Gemfile
+  bundle install
 
-== Model
-If you run:
-  rails generate bento account
-your Account model will call bento_account which will load account functionality into our model.
-If your model isn't named Account you need to override the model bento uses in the generated initializer.
+When you are done, you are ready to add Bento to any of your models using the generator:
+  rails generate bento MODEL
+  rake db:migrate
+Replace MODEL by the class name you want to use as your account-like model, like Account, Site, etc.
+This will create a model (if one does not exist) and configure it with default Bento options.
+The generator will also create a migration file (if you're running ActiveRecord) and configure your routes.
 
-== Routes
-Bento sets up the following routes that you can use, complete with views and controllers:
-* [GET] sign_up_accounts - account and user creation in once
-* [GET] new_accounts - for just account creation
-* [GET] accounts - show
-* [GET] account - index
-* [POST] accounts - create
-* [PUT] account - update
-* [DELETE] account - destroy
+== Getting started
+=== Model
+This is a walkthrough with all steps you need to setup a Bento resource, including model, migration and route files.
+Bento must be set up within the model (or models) you want to use. Bento routes must be created inside your config/routes.rb file.
+We're assuming here you want a Account model with the default Bento options.
+  class Account < ActiveRecord::Base
+    bento
+  end
+Bento doesn't use attr_accessible or attr_protected inside its modules, so be sure to define attributes as accessible or protected in your model.
 
-== Views and controllers
-=== Access the current account:
-There is a current_<account model name> (i.e. current_account) helper in your controllers and views which returns the currently logged in user's account.
+=== Routes
+Configure your routes after setting up your model. Open your config/routes.rb file and add:
+  bento_for :accounts
+This will use your Account model to create a set of needed routes (you can see them by running `rake routes`).
 
-=== Automatic scoping
+This will add bento_for :accounts to your routes file. If you want to add another model just rename or add the argument(s) to bento_for.
+  bento_for :accounts, :sites
+
+=== Controllers
 You can tell your controllers to scope your resource to the current account.
-  class MyController < ApplicationController
+  class AccountsController < Bento::AccountsController
     scoped_to_account
   end
+If you're defining your own controller you must generate views as described below.
+If your current_user respond to admin? All the actions will only be accessible by users that respond with true.
 
-=== Admin managed account
-Bento can give you a complete CRUD for creating accounts. To customize the views use
+=== Views
+Bento gives you a complete CRUD for managing accounts. To customize the views use:
   rails generate bento:views
-If your current_user respond to admin? These actions will only be accessible by users that respond with true.
 
-== Configuring controllers
-
-You can customize the accounts controller by following these steps:
-
-1) Create your custom accounts controller:
-    class AccountsController < Bento::AccountsController
-    end
-
-2) Tell the router to use this controller:
-    resources :accounts
-
-3) And since we changed the controller, it won't use the gem's views so make sure to make some and put in app/views/accounts.
-  rails generate bento:views
+=== Helpers
+Bento will create the following helpers to use inside your controllers and views:
+  current_account
+Where account would be anything your model is named.
+The helper depends on a current_user-helper being defined (as is the case if you're using Devise).
 
 === Override specific pieces
 The default behavior is to redirect to the accounts show view after creation.
 This can be changed by overriding the after_create_url method:
-  class CustomAccountsController < Bento::AccountsController
+  class AccountsController < Bento::AccountsController
     protected
     def after_create_url
-      custom_account_path(resource)
+      account_path(resource)
     end
   end
+
+== Navigating the source
+  The gem has a basic set of cucumber features along with a rails app.
+  Check them out to see some examples on how to use Bento in your application.
+
+== Disclaimer
+* The gem is still in early beta, be careful.
+* Forces you to have a User-model.
+* Only works with Rails 3 and ActiveRecord.
 
 == Credits and contributors
 * The contributors of the awesome Devise gem from which I've borrowed a lot of ideas and patterns.
@@ -74,7 +76,6 @@ This can be changed by overriding the after_create_url method:
 * All the gems that this gem depends on.
 
 == TODO:
+* Remove the requirement to generate view files when overriding the accounts controller.
 * Make is possible to have another user model then User.
-* Complement the acceptance tests with controller specs.
 * Make it possible for a user to belong to more then one account.
-* Set up routes trough bento_for
