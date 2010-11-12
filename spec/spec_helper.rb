@@ -14,7 +14,7 @@ Dir["#{File.expand_path(File.dirname(__FILE__))}/support/*.rb"].each {|f| requir
 Capybara.app = RailsApp::Application
 
 Rspec.configure do |config|
-  config.mock_with :mocha
+  config.mock_with :rspec
   config.include Capybara
   config.use_transactional_fixtures = true
   config.before { Account.delete_all }
