@@ -11,7 +11,7 @@ module Bento
       end
 
       module ClassMethods
-        def bento_account(*modules)
+        def bento(*modules)
           module_names(modules).each { |name| include account_module(name) }
         end
 
