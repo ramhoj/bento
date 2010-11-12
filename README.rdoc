@@ -76,6 +76,7 @@ This can be changed by overriding the after_create_url method:
 * All the gems that this gem depends on.
 
 == TODO:
+* Be able to nest other routes in bento_for.
 * Remove the requirement to generate view files when overriding the accounts controller.
 * Make is possible to have another user model then User.
 * Make it possible for a user to belong to more then one account.
