@@ -8,6 +8,10 @@ module Bento
            "configuration plus a migration file."
 
       hook_for :orm
+
+      def add_bento_routes
+        route "bento_for :#{table_name}"
+      end
     end
   end
 end
