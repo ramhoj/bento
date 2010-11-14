@@ -28,6 +28,10 @@ Bento doesn't use attr_accessible or attr_protected inside its modules, so be su
 Configure your routes after setting up your model. Open your config/routes.rb file and add:
   bento_for :accounts
 This will use your Account model to create a set of needed routes (you can see them by running `rake routes`).
+You can nest other routes in bento_for just as you would with the standard resources routes method:
+  bento_for :accounts do
+    resources :projects
+  end
 
 This will add bento_for :accounts to your routes file. If you want to add another model just rename or add the argument(s) to bento_for.
   bento_for :accounts, :sites
@@ -76,7 +80,6 @@ Check them out to see some examples on how to use Bento in your application.
 * All the gems that this gem depends on.
 
 == TODO:
-* Be able to nest other routes in bento_for.
 * Remove the requirement to generate view files when overriding the accounts controller.
 * Make is possible to have another user model then User.
 * Make it possible for a user to belong to more then one account.
