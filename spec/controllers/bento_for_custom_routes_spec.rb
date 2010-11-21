@@ -25,5 +25,14 @@ describe SitesController do
         put(:destroy, :id => 1); response.should be_redirect
       end
     end
+
+    it "allows the default options to resourcers" do
+      with_routing do |map|
+        map.draw { bento_for :sites, :only => %w[show new] }
+        get(:show, :id => 1); response.should be_success
+        get(:new);            response.should be_success
+        expect { get(:index) }.to raise_error
+      end
+    end
   end
 end
