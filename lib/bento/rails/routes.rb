@@ -1,11 +1,14 @@
 module ActionDispatch::Routing
   class Mapper
     def bento_for(*resource_names, &block)
+      options = resource_names.extract_options!
       resource_names.map!(&:to_sym)
+
       resource_names.each do |resource_name|
         Bento::Controllers::Helpers.define_helpers(resource_name)
+        resource_options = { :controller => account_controller(resource_name) }.merge(options)
 
-        resources(resource_name, :controller => account_controller(resource_name)) do
+        resources(resource_name, resource_options) do
           collection { get :sign_up }
           yield if block_given?
         end
