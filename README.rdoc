@@ -83,3 +83,4 @@ Check them out to see some examples on how to use Bento in your application.
 * Remove the requirement to generate view files when overriding the accounts controller.
 * Make is possible to have another user model then User.
 * Make it possible for a user to belong to more then one account.
+* Rethink the options to the bento method.
