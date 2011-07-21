@@ -1,11 +1,11 @@
-Spec::Matchers.define :be_invalid_without do |attribute|
+RSpec::Matchers.define :be_invalid_without do |attribute|
   match do |record|
     record.valid?
     record.errors.include?(attribute.to_sym)
   end
 end
 
-Spec::Matchers.define :have_user_accessors do
+RSpec::Matchers.define :have_user_accessors do
   match do |record|
     [record.respond_to?(:first_name),
     record.respond_to?(:last_name),
