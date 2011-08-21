@@ -34,6 +34,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency("machinist", ["~> 1.0"])
   s.add_development_dependency("ffaker", ["~> 0.4"])
   s.add_development_dependency("mocha", ["~> 0.9"])
+  s.add_development_dependency("elabs_matchers", ["= 0.0.2"])
 
   s.add_dependency("simple_form", ["~> 1.2"])
   s.add_dependency("inherited_resources", ["~> 1.1"])

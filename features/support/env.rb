@@ -15,6 +15,8 @@ require 'capybara/dsl'
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
+require 'rspec'
+require 'rspec/rails'
 
 require File.dirname(__FILE__) + "/../../spec/support/blueprints"
 Capybara.app = RailsApp::Application
@@ -22,3 +24,9 @@ Capybara.app = RailsApp::Application
 require 'database_cleaner'
 DatabaseCleaner.strategy = :truncation
 Before { DatabaseCleaner.clean }
+
+require 'elabs_matchers'
+LIST_REGEXP = ElabsMatchers::Cucumber::Common::LIST_REGEXP
+Transform /^#{LIST_REGEXP}$/ do |list|
+  list.gsub('"', '').split(ElabsMatchers::Cucumber::Common::LIST_SEPARATOR)
+end
