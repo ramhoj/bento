@@ -6,6 +6,7 @@ module ActionDispatch::Routing
 
       resource_names.each do |resource_name|
         Bento::Controllers::Helpers.define_helpers(resource_name)
+        Bento::Controllers::AccountScopable.define_methods(resource_name)
         resource_options = { :controller => account_controller(resource_name) }.merge(options)
 
         resources(resource_name, resource_options) do

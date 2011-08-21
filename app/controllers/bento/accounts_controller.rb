@@ -21,7 +21,7 @@ class Bento::AccountsController < ApplicationController
   protected
 
   def after_create_url
-    account_url(resource)
+    polymorphic_url(resource)
   end
 
   def authenticate_user!
