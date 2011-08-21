@@ -18,4 +18,6 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.use_transactional_fixtures = true
   config.before { Account.delete_all }
+  config.before(:all)  { Sham.reset(:before_all)  }
+  config.before(:each) { Sham.reset(:before_each) }
 end
