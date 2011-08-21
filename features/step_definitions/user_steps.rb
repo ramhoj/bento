@@ -3,6 +3,15 @@ Given /^there is a user "([^"]*)" belonging to the account "([^"]*)"$/ do |user_
   User.make(:account => account, :email => user_email)
 end
 
+Given /^there is a user "([^"]*)" belonging to the accounts (#{LIST_REGEXP})$/ do |user_email, accounts|
+  user = User.make(:email => user_email)
+  accounts.each do |account_name|
+    account = Account.find_by_name!(account_name)
+    user.accounts << account
+  end
+  user.save!
+end
+
 Given "users don't respond to admin?" do
   "Nothing to see here"
 end
