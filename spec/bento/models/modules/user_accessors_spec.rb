@@ -7,6 +7,16 @@ class UserAccessorsTestAccount < ActiveRecord::Base
 end
 
 describe Bento::Models::Modules::UserAccessors do
+  before do
+    # Adding alias to get the relations to work with our custom made class
+
+    Membership.class_eval do
+      attr_accessible :user_accessors_test_account_id
+      def user_accessors_test_account_id=(id)
+        self.account_id = id
+      end
+    end
+  end
   let(:account_params) do
     { :name => "Hashrocket", :first_name => "Obie", :last_name => "Fernandez", :email => "obie@hashrocket.com", :password => "test1234" }
   end
@@ -22,8 +32,7 @@ describe Bento::Models::Modules::UserAccessors do
     context "all user attributes are blank" do
       it "creates the account without the user" do
         account = UserAccessorsTestAccount.new(:name => "Elabs")
-        account.save.should be_true
-        User.find_by_account_id(account.id).should be_nil
+        expect { account.save.should be_true }.to_not change(User, :count)
       end
     end
 

@@ -2,7 +2,6 @@ class BentoCreateAccounts < ActiveRecord::Migration
   def self.up
     create_table :accounts do |t|
       t.string :name
-      t.string :plan
       t.timestamps
     end
 

@@ -16,7 +16,9 @@
   <%= link_to "Manage custom accounts", custom_accounts_path %>
 
   <% if user_signed_in? %>
-    <span>Current account: <%= current_account.name %></span>
+    <% if current_account %>
+      <span>Current account: <%= current_account.name %></span>
+    <% end %>
     <%= link_to "Projects", projects_path %>
     <%= link_to "All projects", projects_path(:all => true) %>
     <%= link_to('Sign out', destroy_user_session_path) %>

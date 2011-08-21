@@ -11,18 +11,18 @@ module ActiveRecord
 
       def generate_model
         invoke "active_record:model", [name], :migration => false unless model_exists?
+        create_file "app/models/membership.rb", membership_model_content
       end
 
       def copy_bento_migration
         migration_template "create_migration.rb", "db/migrate/bento_create_#{table_name}"
-        migration_template "add_migration.rb", "db/migrate/bento_add_#{name}_id_to_#{table_name}"
+        migration_template "membership_migration.rb", "db/migrate/bento_create_memberships"
       end
 
       def inject_bento_content
-        inject_into_class model_path, class_name, model_contents + <<-CONTENT
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :name, :plan, :first_name, :last_name, :email, :password_confirmation, :password
-CONTENT
+        inject_into_class model_path, class_name, model_contents
+        inject_into_class user_path, "User", user_model_content
+        inject_into_class membership_path, "Membership", membership_model_content
       end
     end
   end

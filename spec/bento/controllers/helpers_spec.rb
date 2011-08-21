@@ -9,6 +9,7 @@ describe Bento::Controllers::Helpers do
   let(:user) { User.make(:account => account, :site => site) }
 
   before do
+    Account.class_eval { def build_user; end }
     AccountController.send(:include, Bento::Controllers::Helpers)
     subject.stubs(:current_user).returns(user)
   end
