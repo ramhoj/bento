@@ -2,6 +2,8 @@
   <%= render "all_projects" %>
 <% elsif params[:my] %>
   <%= render "my_projects" %>
+<% elsif params[:my_accounts] %>
+  <%= render "my_accounts" %>
 <% else %>
   <%= render "current_account_projects" %>
 <% end %>

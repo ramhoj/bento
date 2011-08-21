@@ -1,0 +1,6 @@
+<h4><%= current_user.email %>'s accounts:</h4>
+<ul>
+  <% current_user.accounts.each do |accounts| %>
+    <li><%= accounts.name %></li>
+  <% end %>
+</ul>

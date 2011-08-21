@@ -18,3 +18,9 @@ Feature: Account scooping with a user that belongs to several accounts
     Then I should see "Serenity"
     And I should see "Fort Nox"
     And I should not see "Expedit"
+
+  Scenario: Viewing my account
+    When I follow "My accounts"
+    Then I should see "Elabs"
+    And I should see "SEB"
+    And I should not see "IKEA"
