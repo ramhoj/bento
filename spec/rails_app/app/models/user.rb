@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :account
 
   belongs_to :site
-  has_many :memberships
-  has_many :accounts, :through => :memberships
+  has_many :bento_memberships
+  has_many :accounts, :through => :bento_memberships
 
   # TODO: move these to a bento module
   def account

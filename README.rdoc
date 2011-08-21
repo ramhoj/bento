@@ -15,8 +15,8 @@ This will create a model (if one does not exist) and configure it with default B
 The generator will also create a migration file (if you're running ActiveRecord) and configure your routes.
 
 The migration files will by default set up the following database structure:
-  user has_many :accounts, :through => :memberships
-  accounts has_many :users, :through => :memberships
+  user has_many :accounts, :through => :bento_memberships
+  accounts has_many :users, :through => :bento_memberships
 
 == Getting started
 === Model

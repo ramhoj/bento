@@ -10,7 +10,7 @@ describe Bento::Models::Modules::UserAccessors do
   before do
     # Adding alias to get the relations to work with our custom made class
 
-    Membership.class_eval do
+    BentoMembership.class_eval do
       attr_accessible :user_accessors_test_account_id
       def user_accessors_test_account_id=(id)
         self.account_id = id

@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(:version => 20110821095924) do
 
   add_index "accounts", ["name"], :name => "index_accounts_on_name", :unique => true
 
-  create_table "memberships", :force => true do |t|
+  create_table "bento_memberships", :force => true do |t|
     t.integer  "account_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "memberships", ["account_id", "user_id"], :name => "index_memberships_on_account_id_and_user_id", :unique => true
+  add_index "bento_memberships", ["account_id", "user_id"], :name => "index_bento_memberships_on_account_id_and_user_id", :unique => true
 
   create_table "projects", :force => true do |t|
     t.string   "name"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20110821095924) do
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "site_id"
     t.integer  "account_id"
+    t.integer  "site_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

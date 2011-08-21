@@ -4,8 +4,8 @@ module Bento
       module UserAssociation
         def self.included(base)
           base.class_eval do
-            has_many :memberships
-            has_many :users, :through => :memberships
+            has_many :bento_memberships
+            has_many :users, :through => :bento_memberships
           end
         end
       end

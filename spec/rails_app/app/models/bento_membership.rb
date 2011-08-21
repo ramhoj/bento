@@ -1,4 +1,4 @@
-class Membership < ActiveRecord::Base
+class BentoMembership < ActiveRecord::Base
   belongs_to :user
   belongs_to :account
 

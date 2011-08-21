@@ -14,8 +14,8 @@ CONTENT
 
       def user_model_content
 <<-CONTENT
-  has_many :memberships
-  has_many :#{table_name}, :through => :memberships
+  has_many :bento_memberships
+  has_many :#{table_name}, :through => :bento_memberships
 
   #
   # Remove these methods unless you want to work with
@@ -25,7 +25,7 @@ CONTENT
   # If you know for sure that you don't want to be able
   # to have users that belongs to several #{table_name} you
   # can of course edit the generated migration files to
-  # not create the join model table "memberships" and instead
+  # not create the join model table "bento_memberships" and instead
   # add a #{class_name.underscore}_id to your User model.
   #
   # You also need to not use the :user_association module in bento
@@ -46,9 +46,9 @@ CONTENT
 CONTENT
       end
 
-      def membership_model_content
+      def bento_membership_model_content
 <<-CONTENT
-class Membership < ActiveRecord::Base
+class BentoMembership < ActiveRecord::Base
   belongs_to :user
   belongs_to :#{class_name.underscore}
 
@@ -61,16 +61,16 @@ CONTENT
         File.exists?(File.join(destination_root, model_path))
       end
 
-      def membership_exists?
-        File.exists?(File.join(destination_root, membership_path))
+      def bento_membership_exists?
+        File.exists?(File.join(destination_root, bento_membership_path))
       end
 
       def model_path
         @model_path ||= File.join("app", "models", "#{file_path}.rb")
       end
 
-      def membership_path
-        @membership_path ||= File.join("app", "models", "membership.rb")
+      def bento_membership_path
+        @bento_membership_path ||= File.join("app", "models", "bento_membership.rb")
       end
 
       def user_path
