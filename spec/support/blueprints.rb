@@ -30,7 +30,6 @@ Site.blueprint do
 end
 
 User.blueprint do
-  account
   email { Sham.email }
   password { "test1234" }
 end

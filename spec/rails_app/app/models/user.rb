@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
     accounts.each(&:destroy)
     self.accounts << account
   end
+
+  def projects
+    Project.where(:account_id => accounts.map(&:id))
+  end
 end

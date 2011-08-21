@@ -20,6 +20,7 @@
       <span>Current account: <%= current_account.name %></span>
     <% end %>
     <%= link_to "Projects", projects_path %>
+    <%= link_to "My projects", projects_path(:my => true) %>
     <%= link_to "All projects", projects_path(:all => true) %>
     <%= link_to('Sign out', destroy_user_session_path) %>
   <% else %>

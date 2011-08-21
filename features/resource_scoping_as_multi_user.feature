@@ -13,9 +13,8 @@ Feature: Account scooping with a user that belongs to several accounts
    And there is a user "antony@elabs.se" belonging to the accounts "Elabs" and "SEB"
    And I am signed in as "antony@elabs.se"
 
-  @wip
   Scenario: Viewing projects in my account
-    When I follow "Projects"
+    When I follow "My projects"
     Then I should see "Serenity"
     And I should see "Fort Nox"
     And I should not see "Expedit"

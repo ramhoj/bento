@@ -1,5 +1,7 @@
 <% if params[:all] %>
   <%= render "all_projects" %>
+<% elsif params[:my] %>
+  <%= render "my_projects" %>
 <% else %>
   <%= render "current_account_projects" %>
 <% end %>

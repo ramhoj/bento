@@ -14,6 +14,10 @@ Replace MODEL by the class name you want to use as your account-like model, like
 This will create a model (if one does not exist) and configure it with default Bento options.
 The generator will also create a migration file (if you're running ActiveRecord) and configure your routes.
 
+The migration files will by default set up the following database structure:
+  user has_many :accounts, :through => :memberships
+  accounts has_many :users, :through => :memberships
+
 == Getting started
 === Model
 This is a walkthrough with all steps you need to setup a Bento resource, including model, migration and route files.
@@ -82,7 +86,6 @@ Check them out to see some examples on how to use Bento in your application.
 == TODO:
 * Remove the requirement to generate view files when overriding the accounts controller.
 * Make is possible to have another user model then User.
-* Make it possible for a user to belong to more then one account.
 * Rethink the options to the bento method.
 
 == License:

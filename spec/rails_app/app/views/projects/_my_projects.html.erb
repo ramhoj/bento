@@ -1,0 +1,9 @@
+<h4><%= current_user.email %>'s projects:</h4>
+<ul>
+  <% current_user.projects.each do |project| %>
+    <li>
+      <%= link_to "Edit '#{project.name}'", edit_project_path(project) %>
+      <%= button_to "Delete '#{project.name}'", project_path(project), :method => :delete %>
+    </li>
+  <% end %>
+</ul>
