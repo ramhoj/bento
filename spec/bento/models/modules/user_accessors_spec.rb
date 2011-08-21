@@ -17,6 +17,7 @@ describe Bento::Models::Modules::UserAccessors do
       end
     end
   end
+
   let(:account_params) do
     { :name => "Hashrocket", :first_name => "Obie", :last_name => "Fernandez", :email => "obie@hashrocket.com", :password => "test1234" }
   end

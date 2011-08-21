@@ -44,7 +44,7 @@ CONTENT
     self.#{table_name} << new_#{class_name.underscore}
   end
 CONTENT
-     end
+      end
 
       def membership_model_content
 <<-CONTENT
@@ -55,7 +55,7 @@ class Membership < ActiveRecord::Base
   attr_accessible :#{class_name.underscore}, :user_id
 end
 CONTENT
-     end
+      end
 
       def model_exists?
         File.exists?(File.join(destination_root, model_path))
