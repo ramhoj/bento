@@ -7,7 +7,7 @@
   <%= form.input :password %>
   <%= form.input :password_confirmation %>
 
-  <% # Do not remove thos hidden field or else the redirections woun't work as expected %>
+  <% # Do not remove thos hidden field or else the redirections won't work as expected %>
   <%= hidden_field_tag :referer, "sign_up" %>
 
   <%= form.button :submit, "Create account", :class => "Submit" %>

@@ -27,7 +27,7 @@ Feature: Account scooping
     Then I should not see "Take over the world"
     And I should see "Secret"
 
-  Scenario: Can create a new project to my account, but not to others
+  Scenario: Trying to create a project on another account just creates it on my own
     Given there is an account "Hashrocket"
     And there is a user "antony@hashrocket.se" belonging to the account "Hashrocket"
     When I follow "Projects"

@@ -69,7 +69,7 @@ Feature: Manage accounts
   Scenario: Users who respond with true to admin? can access the accounts list
     Then users show respond true to admin? should see "Accounts"
 
-  Scenario: Users who respond with false to admin? can access the accounts list
+  Scenario: Users who respond with false to admin? can't access the accounts list
     Then users show respond false to admin? should see "You are not authorized to access this page."
 
   Scenario: Creating a new account using the site model with overridden after creation redirect

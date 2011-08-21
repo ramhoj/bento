@@ -1,6 +1,7 @@
 Feature: Current account
   In order to provide a way to access the currently logged in user's account
-  I want to provide a rails helper that returns the currently logged in user
+  I want to provide a rails helper that returns the account that the
+  currently logged in user belongs to
 
   Background:
     Given there is an account "Elabs"
