@@ -52,7 +52,7 @@ class BentoMembership < ActiveRecord::Base
   belongs_to :user
   belongs_to :#{class_name.underscore}
 
-  attr_accessible :#{class_name.underscore}, :user_id
+  attr_accessible :#{class_name.underscore}_id, :user_id
 end
 CONTENT
       end
@@ -74,7 +74,7 @@ CONTENT
       end
 
       def user_path
-        @memberships_path ||= File.join("app", "models", "user.rb")
+        @user_path ||= File.join("app", "models", "user.rb")
       end
     end
   end
