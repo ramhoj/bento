@@ -84,9 +84,9 @@ Check them out to see some examples on how to use Bento in your application.
 * All the gems that this gem depends on.
 
 == TODO:
-* Remove the requirement to generate view files when overriding the accounts controller.
+* Move belongs_to compatibility methods into a bento module.
+* Make it possible to add/remote users to/from accounts.
 * Make is possible to have another user model then User.
-* Rethink the options to the bento method.
 
 == License:
 
