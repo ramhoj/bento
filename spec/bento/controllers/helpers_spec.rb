@@ -9,8 +9,11 @@ describe Bento::Controllers::Helpers do
   let(:user) { User.make(:account => account, :site => site) }
 
   before do
+    # TODO: figgure out why we must disable build user here
     Account.class_eval { def build_user; end }
+
     AccountController.send(:include, Bento::Controllers::Helpers)
+
     subject.stubs(:current_user).returns(user)
   end
 

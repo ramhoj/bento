@@ -1,3 +1,5 @@
+# TOOD: these methods should be dynamicly named?!
+
 module Bento
   module Controllers
     module AccountScopable
@@ -14,6 +16,8 @@ module Bento
         end
 
         def current_account
+          # TOOD: this methods should first look for a param
+          # then try the current_user's first account
           if not_responding_to_admin? or admin?
             account_by_param_or_session
           else
