@@ -14,6 +14,9 @@ class Bento::AccountsController < ApplicationController
     end
   end
 
+  update! { account_url(resource) }
+  destroy! { accounts_url }
+
   def sign_up
     build_resource
   end
@@ -21,7 +24,7 @@ class Bento::AccountsController < ApplicationController
   protected
 
   def after_create_url
-    polymorphic_url(resource)
+    account_url(resource)
   end
 
   def authenticate_user!
