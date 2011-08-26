@@ -85,6 +85,7 @@ Check them out to see some examples on how to use Bento in your application.
 
 == TODO:
 * Make it possible to add/remote users to/from accounts.
+* Add inline documentation
 * Make is possible to have another user model then User.
 
 == License:
