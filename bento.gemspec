@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.rubyforge_project = "bento"
   s.version = Bento::VERSION
 
-  s.authors = ["Nicklas Ramhöj", "Jonas Nicklas"]
+  s.authors = ["Nicklas Ramhöj"]
   s.email = ["ramhoj@gmail.com"]
   s.description = "A Rails account management engine"
 
