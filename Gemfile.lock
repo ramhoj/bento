@@ -160,7 +160,6 @@ PLATFORMS
 DEPENDENCIES
   bento!
   capybara (~> 1.0)
-  cucumber (~> 1.0)
   cucumber-rails (~> 1.0)
   database_cleaner (~> 0.6)
   devise (~> 1.4.2)

@@ -25,8 +25,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency("rspec-rails",      ["~> 2.6.1"])
   s.add_development_dependency("sqlite3-ruby",     ["~> 1.3.1"])
   s.add_development_dependency("capybara",         ["~> 1.0"])
-  # remove
-  s.add_development_dependency("cucumber",         ["~> 1.0"])
   s.add_development_dependency("cucumber-rails",   ["~> 1.0"])
   s.add_development_dependency("database_cleaner", ["~> 0.6"])
   s.add_development_dependency("launchy",          ["~> 0.3"])
