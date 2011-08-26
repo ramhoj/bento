@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   s.summary = "A Rails account management engine"
 
   s.add_development_dependency("rspec-rails",      ["~> 2.6.1"])
-  s.add_development_dependency("sqlite3-ruby",     ["~> 1.3.1"])
+  s.add_development_dependency("sqlite3-ruby",     ["~> 1.3"])
   s.add_development_dependency("capybara",         ["~> 1.0"])
   s.add_development_dependency("cucumber-rails",   ["~> 1.0"])
   s.add_development_dependency("database_cleaner", ["~> 0.6"])
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency("elabs_matchers",   ["~> 0.0.2"])
 
   s.add_dependency("rails",                        ["~> 3.0"])
-  s.add_dependency("simple_form",                  ["~> 1.2"])
+  s.add_dependency("simple_form",                  ["~> 1.4"])
   s.add_dependency("inherited_resources",          ["~> 1.2.2"])
   s.add_dependency("table_for",                    ["~> 0.0.2"])
   s.add_dependency("show_for",                     ["~> 0.2"])
