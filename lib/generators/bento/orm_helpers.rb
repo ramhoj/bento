@@ -18,8 +18,8 @@ CONTENT
   has_many :#{table_name}, :through => :bento_memberships
 
   #
-  # Remove these methods unless you want to work with
-  # the has_many :through association as it was a simple
+  # Remove this method call unless you want to work with
+  # the has_many :through association as if it was a simple
   # belongs_to :#{class_name.underscore}.
   #
   # If you know for sure that you don't want to be able
@@ -31,18 +31,9 @@ CONTENT
   # You also need to not use the :user_association module in bento
   # for example to use all in your #{class_name} model change the
   # call to bento from `bento :all` to bento `:validations, :user_accessors, :user_accessors, :trial`
-  # then you just replace the above lines with:
-  # belongs_to :#{class_name.underscore} and remove the accessors below.
+  # then you just remove the above relations and remove the "fake_" part below.
   #
-
-  def #{class_name.underscore}
-    #{table_name}.first
-  end
-
-  def #{class_name.underscore}=(new_#{class_name.underscore})
-    #{table_name}.each(&:destroy)
-    self.#{table_name} << new_#{class_name.underscore}
-  end
+  fake_belongs_to :#{class_name.underscore}
 CONTENT
       end
 
