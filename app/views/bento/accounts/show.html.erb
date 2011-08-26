@@ -4,6 +4,12 @@
   <%= show.attributes :name %>
 <% end %>
 
+<ul>
+  <% @account.users.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>
+
 <p>
   <%= link_to("Edit", edit_account_path(@account)) %>
   <%= button_to('Delete', @account, :method => :delete) %>

@@ -48,6 +48,22 @@ Feature: Manage accounts
     Then I should see "Elbbs"
     And I should not see "Elabs"
 
+  Scenario: Update users on an account
+    Given there is an account "Elabs"
+    And there is an account "Engine Yard"
+    And there is a user "antony@elabs.se" belonging to the account "Elabs"
+    And there is a user "tammer@ey.com" belonging to the account "Engine Yard"
+    And there is a user "ops@ey.com" belonging to the account "Engine Yard"
+    And I follow "Manage accounts"
+    When I follow "Edit 'Engine Yard'"
+    And I check "antony@elabs.se"
+    And I uncheck "ops@ey.com"
+    And I press "Update"
+    Then I should see the header "Engine Yard"
+    And I should see "antony@elabs.se"
+    And I should see "tammer@ey.com"
+    And I should not see "ops@ey.com"
+
   Scenario: Deleting an account
     Given there is an account "Elabs"
     And I follow "Manage accounts"

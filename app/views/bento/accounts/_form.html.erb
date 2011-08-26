@@ -1,5 +1,6 @@
 <%= simple_form_for @account do |form| -%>
   <%= form.input :name %>
+  <%= form.association :users, :as => :check_boxes, :collection => User.all.map { |u| [u.email, u.id] } %>
   <%= form.button :submit %>
 <% end -%>
 

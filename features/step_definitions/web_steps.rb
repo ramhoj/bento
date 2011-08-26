@@ -33,3 +33,11 @@ end
 Then /^I should not see the header "([^\"]*)"$/ do |text|
   page.should have_no_css("h1, h2", :text => text)
 end
+
+When /^I check "([^"]*)"$/ do |value|
+  page.check(value)
+end
+
+When /^I uncheck "([^"]*)"$/ do |value|
+  page.uncheck(value)
+end

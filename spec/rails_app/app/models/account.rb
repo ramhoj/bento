@@ -5,7 +5,8 @@ class Account < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :name, :plan, :first_name, :last_name, :email,
-                  :password_confirmation, :password, :created_at, :updated_at
+                  :password_confirmation, :password, :created_at, :updated_at,
+                  :user_ids
 
   has_many :projects
 end
