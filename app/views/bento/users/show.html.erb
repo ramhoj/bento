@@ -1,0 +1,7 @@
+<h1><%= @user.email %></h1>
+
+<%= show_for @user do |show| %>
+  <%= show.attributes :email %>
+<% end %>
+
+<p><%= link_to "Back to account", account_path(@user.account) %></p>

@@ -1,0 +1,8 @@
+<%= simple_form_for [@account, @user] do |form| -%>
+  <%= form.input :email %>
+  <%= form.input :password %>
+  <%= form.input :password_confirmation %>
+  <%= form.button :submit %>
+<% end -%>
+
+<p><%= link_to "Back to account", account_path(@account) %></p>

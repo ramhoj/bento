@@ -27,7 +27,7 @@ Then /^I should not see "([^"]*)"$/ do |text|
 end
 
 Then /^I should see the header "([^\"]*)"$/ do |text|
-  page.should have_css("h1, h2", :text => text)
+  page.should have_css("h1, h2, caption", :text => text)
 end
 
 Then /^I should not see the header "([^\"]*)"$/ do |text|

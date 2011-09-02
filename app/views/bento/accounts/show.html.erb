@@ -4,15 +4,16 @@
   <%= show.attributes :name %>
 <% end %>
 
-<ul>
-  <% @account.users.each do |user| %>
-    <li><%= user.email %></li>
+<%= table_for User, @account.users do |table| %>
+  <%= table.head :email, :edit, :delete %>
+  <%= table.body do |row| %>
+    <%= row.cell link_to(row.record.email, [@account, row.record]) %>
+    <%= row.cell link_to("Edit '#{row.record.email}'", edit_account_user_path(@account, row.record)) %>
+    <%= row.cell button_to("Delete '#{row.record.email}'", account_user_path(@account, row.record), :method => :delete) %>
   <% end %>
-</ul>
-
-<p>
-  <%= link_to("Edit", edit_account_path(@account)) %>
-  <%= button_to('Delete', @account, :method => :delete) %>
-</p>
+  <%= table.foot do %>
+    <%= link_to "Add user", new_account_user_path(@account) %>
+  <% end %>
+<% end %>
 
 <p><%= link_to "Back to accounts", accounts_path %></p>

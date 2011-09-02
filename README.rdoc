@@ -84,8 +84,7 @@ Check them out to see some examples on how to use Bento in your application.
 * All the gems that this gem depends on.
 
 == TODO:
-* Make it possible to create new users
-* Make it possible to completely remove users
+* Make user CRUD production ready
 * Add inline documentation
 * Make is possible to have another user model then User.
 

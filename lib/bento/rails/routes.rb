@@ -11,6 +11,7 @@ module ActionDispatch::Routing
 
         resources(resource_name, resource_options) do
           collection { get :sign_up }
+          resources :users, :controller => "bento/users"
           yield if block_given?
         end
       end
