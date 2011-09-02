@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    bento (0.0.2)
+    bento (0.0.3)
       inherited_resources (~> 1.2.2)
       rails (~> 3.0)
       show_for (~> 0.2)
